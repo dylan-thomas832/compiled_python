@@ -1,0 +1,6 @@
+.venv/
+dist/
+.pytest_cache/
+build/
+*.so
+!lib/
