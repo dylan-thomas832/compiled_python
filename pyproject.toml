@@ -7,7 +7,7 @@ name = "orbits"
 version = "0.0.1"
 
 [tool.scikit-build]
-cmake.verbose = true
+build.verbose = true
 logging.level = "INFO"
-# build-dir = "build/{wheel_tag}"
+build-dir = "build/{wheel_tag}"
 # wheel.install-dir = "orbits"
