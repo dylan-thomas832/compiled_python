@@ -9,4 +9,4 @@ version = "0.0.1"
 [tool.scikit-build]
 build.verbose = true
 logging.level = "INFO"
-build-dir = "build/{wheel_tag}"
+build-dir = "build/{cache_tag}"
