@@ -1,5 +1,5 @@
 [build-system]
-requires = ["scikit-build-core", "swig"]
+requires = ["scikit-build-core>=0.10.5", "swig>=4.1.1"]
 build-backend = "scikit_build_core.build"
 
 [project]
@@ -9,4 +9,4 @@ version = "0.0.1"
 [tool.scikit-build]
 build.verbose = true
 logging.level = "INFO"
-build-dir = "build/{cache_tag}"
+build-dir = "build/{wheel_tag}"
