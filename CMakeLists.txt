@@ -3,6 +3,10 @@ project(${SKBUILD_PROJECT_NAME} LANGUAGES CXX)
 
 include( GNUInstallDirs )
 
+if(${SKBUILD})
+  set(CMAKE_INSTALL_PREFIX ${SKBUILD_PLATLIB_DIR}/${SKBUILD_PROJECT_NAME})
+endif()
+
 find_package(
   Python
   COMPONENTS Interpreter Development.Module
@@ -24,7 +28,7 @@ swig_add_library(
   example
   LANGUAGE python
   TYPE SHARED
-  OUTPUT_DIR ${SKBUILD_PLATLIB_DIR}/${SKBUILD_PROJECT_NAME}
+  OUTPUT_DIR ${CMAKE_INSTALL_PREFIX}
   SOURCES ${SRC})
 
 set_target_properties(
@@ -40,5 +44,5 @@ set_property(TARGET
 target_include_directories(example PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/lib)
 target_link_libraries(example PRIVATE Python::Module libexample)
 
-install(TARGETS libexample DESTINATION ${SKBUILD_PLATLIB_DIR}/${SKBUILD_PROJECT_NAME})
-install(TARGETS example DESTINATION ${SKBUILD_PLATLIB_DIR}/${SKBUILD_PROJECT_NAME})
+install(TARGETS libexample DESTINATION ${CMAKE_INSTALL_PREFIX})
+install(TARGETS example DESTINATION ${CMAKE_INSTALL_PREFIX})
